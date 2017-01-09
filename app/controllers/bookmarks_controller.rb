@@ -1,7 +1,8 @@
 class BookmarksController < ApplicationController
+  before_action :authenticate_user
 
   def index
-    @bookmarks = Bookmark.all
+    @bookmarks = current_user.bookmarks
   end
 
   def new
@@ -10,6 +11,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.user = current_user
     if @bookmark.save
       redirect_to bookmark_path(@bookmark)
     else
