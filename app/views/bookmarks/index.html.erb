@@ -1,6 +1,6 @@
 <h1>Index page</h1>
 
 <% @bookmarks.each do |bookmark| %>
-  <%= bookmark.url %><br>
+  <%= link_to bookmark.url, bookmark_path(bookmark) %><br>
 
 <% end %>
