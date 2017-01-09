@@ -1,7 +1,3 @@
-<% @user.errors.full_messages.each do |msg| %>
-    <%= content_tag :div, msg %>
-<% end %>
-
 <h1>Signup Sheet</h1>
 <%= form_for @user do |f| %>
 <p><%= f.label :email %>
