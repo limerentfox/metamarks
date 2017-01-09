@@ -1,4 +1,4 @@
 <h1>This is the show page</h1>
 
-URL: <%= @bookmark.url %><br>
+URL: <%= link_to @bookmark.url, @bookmark.url, :target => "_blank"%><br>
 Tags: <%= @bookmark.all_tags %>
