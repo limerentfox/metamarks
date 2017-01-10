@@ -1,0 +1,5 @@
+<h3><%= @tag.name %></h3>
+
+<% @bookmarks.each do |bookmark| %>
+<%= link_to bookmark.url, bookmark_path(bookmark) %>
+<% end %>
