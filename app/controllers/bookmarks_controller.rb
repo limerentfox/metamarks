@@ -10,6 +10,7 @@ class BookmarksController < ApplicationController
   end
 
   def create
+    binding.pry
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user = current_user
     if @bookmark.save
@@ -40,6 +41,6 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :user_id, :all_tags)
+    params.require(:bookmark).permit(:url, :user_id, :title, :description, :notes, :all_tags, :pictures)
   end
 end

@@ -1,8 +1,33 @@
 <%= form_for @bookmark do |f| %>
   <%= f.label :url %>
-  <%= f.url_field :url %>
+  <%= f.url_field :url %><br />
+
+
+
+  <%= f.label :title %>
+  <%= f.text_field :title %><br />
+
+
+
+  <%= f.label :description %>
+  <%= f.text_field :description %><br />
+
+
+
+  <%= f.label :notes  %>
+  <%= f.text_area :notes %><br />
+
+
+
   <%= f.label :all_tags %>
-  <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+  <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %><br />
+
+
+
+  <%= f.label :pictures %>
+  <%= file_field_tag "images[]", type: :file, multiple: true %><br />
+
+
 
   <%= f.submit %>
 <% end %>
