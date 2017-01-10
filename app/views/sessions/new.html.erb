@@ -7,8 +7,10 @@
 <p><%= label_tag :password %>
 <%= password_field_tag :password %></p>
 
-<%= submit_tag "Login" %>
+<%= submit_tag "Login", class: "waves-effect waves-light btn" %>
 
 <% end %>
 
-<%= button_to "Signup", signup_path, method: 'get' %>
+<br />
+
+<%= button_to "Signup", signup_path, method: 'get', class: "waves-effect waves-light btn" %>
