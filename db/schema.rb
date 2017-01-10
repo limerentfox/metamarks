@@ -25,19 +25,8 @@ ActiveRecord::Schema.define(version: 20170110162854) do
   create_table "bookmarks", force: :cascade do |t|
     t.string   "url"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.text     "notes"
-    t.string   "title"
-    t.string   "description"
-  end
-
-  create_table "pictures", force: :cascade do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.integer  "bookmark_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", force: :cascade do |t|

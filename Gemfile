@@ -8,6 +8,9 @@ end
 #paperclip
 gem "paperclip", "~> 5.0.0"
 
+gem 'validate_url'
+# This gem adds the capability of validating URLs to ActiveRecord and ActiveModel (Rails 3).
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
