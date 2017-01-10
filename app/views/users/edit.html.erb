@@ -1,4 +1,4 @@
-<h1>Edit Profile</h1>
+<h3>Edit Profile</h3>
 <%= form_for @user, url: user_path(current_user), html: { multipart: true }  do |f| %>
 
   <p><%= f.file_field :avatar %></p>
