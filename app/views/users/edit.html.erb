@@ -1,11 +1,12 @@
 <h3>Edit Profile</h3>
 <%= form_for @user, url: user_path(current_user), html: { multipart: true }  do |f| %>
 
-  <p><%= f.file_field :avatar %></p>
+  <p><%= f.file_field :avatar, class: 'file-field input-field' %></p>
+  
   <p><%= f.label :email %>
   <%= f.text_field :email %></p>
 
   <p><%= f.label :password %>
   <%= f.password_field :password %></p>
-  <%= f.submit %>
+  <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>
