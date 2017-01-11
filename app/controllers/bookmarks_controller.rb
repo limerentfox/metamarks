@@ -38,8 +38,8 @@ class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
     @object = LinkThumbnailer.generate(@bookmark.url)
-    @favicon = @object.images.first.src.to_s
-    @image = @object.favicon
+    @image = @object.images.first.src.to_s
+
   end
 
 
