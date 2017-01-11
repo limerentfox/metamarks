@@ -2,9 +2,6 @@
 
 <%= form_for @bookmark do |f| %>
 
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
   <%= f.label :url %>
   <%= f.url_field :url %>
 
@@ -13,9 +10,6 @@
 
   <%= f.label :notes %>
   <%= f.text_field :notes %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
 
   <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>

@@ -1,4 +1,4 @@
-<h3>Index page</h3>
+<h3>Recent Bookmarks</h3>
 
 <div class="row">
   <% @bookmarks.each do |bookmark| %>
@@ -7,5 +7,6 @@
         <%= link_to bookmark.url, bookmark_path(bookmark), class: "card-content black-text truncate" %>
       </div>
     </div>
+  </div>
   <% end %>
 </div>

@@ -4,6 +4,7 @@
       <ul id="nav-mobile" class="left hide-on-med-and-down">
         <li><%= link_to "Home", root_path  %></li>
         <% if logged_in? %>
+          <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to "New Bookmark", new_bookmark_path %></li>
           <li><%= link_to "Logout", logout_path, method: :delete %></li>
         <% else %>
