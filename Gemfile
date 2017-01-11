@@ -12,6 +12,9 @@ gem 'materialize-sass'
 # paperclip
 gem "paperclip", "~> 5.0.0"
 
+#screenshots
+gem 'link_thumbnailer'
+
 gem 'validate_url'
 # This gem adds the capability of validating URLs to ActiveRecord and ActiveModel (Rails 3).
 

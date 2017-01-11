@@ -34,12 +34,14 @@ class BookmarksController < ApplicationController
 
   def show
     @bookmark = Bookmark.find(params[:id])
+    @object = LinkThumbnailer.generate(@bookmark.url)
+    @image = @object.images.first.src.to_s
   end
 
 
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :user_id, :all_tags)
+    params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description)
   end
 end

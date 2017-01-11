@@ -19,6 +19,7 @@
  @import "materialize";
 
 
+
   body {
     display: flex;
     min-height: 100vh;
@@ -30,3 +31,18 @@
   main {
     flex: 1 0 auto;
   }
+
+  img {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+        size: 30%;
+    }
+
+  .link-container {
+        height: 300px;
+    }
+
+  .link-img-size {
+        height: 30%;
+    }
