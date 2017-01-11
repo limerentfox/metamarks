@@ -1,6 +1,17 @@
 <h3>Index page</h3>
 
+<div class="row">
+
+
 <% @bookmarks.each do |bookmark| %>
-  <%= link_to bookmark.url, bookmark_path(bookmark) %><br>
+
+
+      <div class="col s12 m4">
+        <div class="card-panel grey lighten-2 center-align hoverable">
+          <%= link_to bookmark.url, bookmark_path(bookmark), class: "card-content black-text truncate" %>
+        </div>
+      </div>
 
 <% end %>
+
+</div>

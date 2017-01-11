@@ -9,13 +9,11 @@
     </head>
 
     <body>
-        <% if logged_in? %>
-        <div style="float:right">
-            <%= button_to "Logout", logout_path, :method => "delete", class: "waves-effect waves-light btn" %>
-        </div>
-        <% end %>
-        <div class="container">
-            <%= yield %>
-        </div>
+      <%= render 'shared/nav' %>
+
+      <%= render 'shared/main'  %>
+
+      <%= render 'shared/footer'  %>
+
     </body>
 </html>

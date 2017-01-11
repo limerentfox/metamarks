@@ -1,6 +1,10 @@
+
+
 <%= form_for @bookmark do |f| %>
+
   <%= f.label :url %>
   <%= f.url_field :url %>
+
   <%= f.label :all_tags %>
   <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
 

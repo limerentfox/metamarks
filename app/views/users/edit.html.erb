@@ -1,3 +1,4 @@
+<div class="container">
 <h3>Edit Profile</h3>
 <%= form_for @user, url: user_path(current_user), html: { multipart: true }  do |f| %>
 
@@ -9,3 +10,4 @@
   <%= f.password_field :password %></p>
   <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>
+</div>

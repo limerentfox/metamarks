@@ -1,0 +1,11 @@
+<nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">MetaMarks</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><%= link_to "Home", root_path  %></li>
+        <% if logged_in? %>
+          <li><%= link_to "New Bookmark", new_bookmark_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
