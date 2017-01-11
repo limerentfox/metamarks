@@ -1,12 +1,20 @@
+
+
+
 <h3><%=@bookmark.title%></h3>
 <h6><%=@bookmark.description%></h6>
 
 <div class="link-container">
-  <%= link_to @bookmark.url, :target => "_blank" do %>
-    <%= image_tag @image, class: "link-img-size" %>
-  <% end %>
+    <% if !@image.blank? %>
+      <%= link_to @bookmark.url, :target => "_blank" do %>
+        <%= image_tag @image, class: "link-img-size" %>
+      <% end %>
+    <% else %>
+      <p><%= link_to @bookmark.url, :target => "_blank" %></p>
+    <% end %>
 </div>
 
-Tags: <% @bookmark.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag) %>
-      <% end %>
+Tags:
+<% @bookmark.tags.each do |tag| %>
+  <%= link_to tag.name, tag_path(tag) %> |
+<% end %>

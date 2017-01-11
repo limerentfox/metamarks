@@ -31,6 +31,7 @@
 
   main {
     flex: 1 0 auto;
+    padding: 2%;
   }
 
   img {
@@ -43,8 +44,13 @@
   .link-container {
         margin-top: 20px;
         height: 300px;
+
     }
 
   .link-img-size {
-        height: 60%;
+      max-height: 60%;
     }
+
+  .second .container {
+    background-color: white;
+  }
