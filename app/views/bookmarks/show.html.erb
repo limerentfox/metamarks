@@ -1,6 +1,12 @@
-<h3>This is the show page</h3>
+<h3><%=@bookmark.url%></h3>
 
-URL: <%= link_to @bookmark.url, @bookmark.url, :target => "_blank"%><br>
+
 Tags: <% @bookmark.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag) %>
+        <%= link_to tag.name, tag_path(tag) %>
       <% end %>
+
+<div class="link-container">
+  <%= link_to @bookmark.url, :target => "_blank" do %>
+    <%= image_tag @image, class: "link-img-size" %>
+  <% end %>
+</div>
