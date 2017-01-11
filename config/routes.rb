@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :users, only: [:create, :show, :edit, :update]
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
-  delete '/logout', to: 'sessions#destroy', as: 'logout'
-  resources :sessions, only: [:create]
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy', as: "logout"
   resources :bookmarks
   resources :tags, only: [:show]
 
