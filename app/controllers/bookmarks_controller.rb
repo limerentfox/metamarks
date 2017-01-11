@@ -12,6 +12,9 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user = current_user
+    @object = LinkThumbnailer.generate(@bookmark.url)
+    @bookmark.title = @object.title
+    @bookmark.description = @object.description
     if @bookmark.save
       redirect_to bookmark_path(@bookmark)
     else
@@ -35,7 +38,8 @@ class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
     @object = LinkThumbnailer.generate(@bookmark.url)
-    @image = @object.images.first.src.to_s
+    @favicon = @object.images.first.src.to_s
+    @image = @object.favicon
   end
 
 
