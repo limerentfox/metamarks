@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy', as: "logout"
   resources :bookmarks
   resources :tags, only: [:show]
-
+  # get '/delete', to: "bookmarks#destroy"
 
 end

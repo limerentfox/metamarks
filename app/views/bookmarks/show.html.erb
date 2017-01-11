@@ -1,6 +1,3 @@
-
-
-
 <h3><%=@bookmark.title%></h3>
 <h6><%=@bookmark.description%></h6>
 
@@ -13,6 +10,11 @@
       <p><%= link_to @bookmark.url, :target => "_blank" %></p>
     <% end %>
 </div>
+
+<%= button_to "Back", bookmarks_path, method: 'get', class: "waves-effect waves-light btn"  %><br>
+<%= button_to "Edit", edit_bookmark_path(@bookmark), method: 'get', class: "waves-effect waves-light btn"  %><br>
+<%= button_to "Delete", bookmark_path(@bookmark), method: 'delete', class: "waves-effect waves-light btn"  %>
+
 
 Tags:
 <% @bookmark.tags.each do |tag| %>
