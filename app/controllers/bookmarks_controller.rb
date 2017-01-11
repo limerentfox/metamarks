@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user
+  # helper_method :get_thumbnail_url
 
   def index
     @bookmarks = current_user.bookmarks
@@ -44,4 +45,9 @@ class BookmarksController < ApplicationController
   def bookmark_params
     params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description)
   end
+
+  # def get_thumbnail_url(url)
+  #   object = LinkThumbnailer.generate(url)
+  #   object.images.first.src.to_s
+  # end
 end

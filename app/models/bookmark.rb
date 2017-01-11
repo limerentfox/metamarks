@@ -14,5 +14,4 @@ class Bookmark < ApplicationRecord
     self.tags.map(&:name).join(", ")
   end
 
-
 end
