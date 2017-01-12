@@ -115,6 +115,7 @@ GEM
     oga (2.8)
       ast
       ruby-ll (~> 2.1)
+    open_uri_redirections (0.2.1)
     paperclip (5.0.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -239,6 +240,7 @@ DEPENDENCIES
   link_thumbnailer
   listen (~> 3.0.5)
   materialize-sass
+  open_uri_redirections
   paperclip (~> 5.0.0)
   pg (~> 0.18)
   pry

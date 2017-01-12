@@ -20,7 +20,7 @@ class TagSuggester
   end
 
   def get_keywords
-    text_to_parse = Nokogiri::HTML(open(@url)).css('h1, h2, h3, h4, h5, h6, p, span').inner_text.gsub!(/[^A-Za-z]/, ' ')
+    text_to_parse = Nokogiri::HTML(open(@url, :allow_redirections => :all)).css('h1, h2, h3, h4, h5, h6, p, span').inner_text.gsub!(/[^A-Za-z]/, ' ')
     keywords = compareIndex(text_to_parse)
     keywords
   end
