@@ -21,11 +21,6 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.user = current_user
-    # @bookmark.user = current_user
-    # @object = LinkThumbnailer.generate(@bookmark.url)
-    # @bookmark.title = @object.title
-    # @bookmark.description = @object.description
-    # !@object.images.blank? ? @bookmark.image_url = @object.images.first.src.to_s : @bookmark.image_url = ""
     if @bookmark.save
       redirect_to bookmark_path(@bookmark)
     else
@@ -63,6 +58,6 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description)
+    params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description, :image_url)
   end
 end

@@ -1,28 +1,31 @@
 <h3><%=@bookmark.title%></h3>
 <h6><%=@bookmark.description%></h6>
-
 <div class="link-container">
     <% if !@bookmark.image_url.blank? %>
       <%= link_to @bookmark.url, :target => "_blank" do %>
         <%= image_tag @bookmark.image_url, class: "link-img-size" %>
       <% end %>
     <% else %>
-      <p><%= link_to @bookmark.url, :target => "_blank" %></p>
+      <p><%= link_to @bookmark.url, @bookmark.url, :target => "_blank" %></p>
     <% end %>
+     <div class="tags_wrapper">
+      A link about:
+      <% @bookmark.tags.each do |tag| %>
+        <span class="tag"><%= link_to tag.name, tag_path(tag) %></span>
+      <% end %>
+     </div>
 </div>
+<p>
+
+</p>
 
 <p>Notes: <%=@bookmark.notes %></p>
 
-<div class="butons-wrapper">
+<div class="buttons-wrapper">
 
     <%= button_to "Back", bookmarks_path, method: 'get', class: "waves-effect waves-light btn"  %>
     <%= button_to "Edit", edit_bookmark_path(@bookmark), method: 'get', class: "waves-effect waves-light btn"  %>
     <%= button_to "Delete", bookmark_path(@bookmark), method: 'delete', class: "waves-effect waves-light btn"  %>
 
 </div>
-<p>
-  Tags:
-  <% @bookmark.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %> |
-  <% end %>
-</p>
+
