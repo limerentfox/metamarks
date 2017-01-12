@@ -15,6 +15,7 @@ class BookmarksController < ApplicationController
     @object = LinkThumbnailer.generate(@bookmark.url)
     @bookmark.title = @object.title
     @bookmark.description = @object.description
+    !@object.images.blank? ? @bookmark.image_url = @object.images.first.src.to_s : @bookmark.image_url = ""
     if @bookmark.save
       redirect_to bookmark_path(@bookmark)
     else
@@ -37,12 +38,12 @@ class BookmarksController < ApplicationController
 
   def show
     @bookmark = Bookmark.find(params[:id])
-    @object = LinkThumbnailer.generate(@bookmark.url)
-    @image = @object.images.first.src.to_s
   end
 
   def destroy
     @bookmark = Bookmark.find(params[:id])
+    @bookmark_tags = BookmarkTag.where(bookmark_id: @bookmark.id)
+    @bookmark_tags.each { |bookmarktag| bookmarktag.destroy }
     @bookmark.destroy
     redirect_to bookmarks_path
   end

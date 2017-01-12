@@ -2,14 +2,18 @@
 <h6><%=@bookmark.description%></h6>
 
 <div class="link-container">
-    <% if !@image.blank? %>
+    <% if !@bookmark.image_url.blank? %>
       <%= link_to @bookmark.url, :target => "_blank" do %>
-        <%= image_tag @image, class: "link-img-size" %>
+        <%= image_tag @bookmark.image_url, class: "link-img-size" %>
       <% end %>
     <% else %>
       <p><%= link_to @bookmark.url, :target => "_blank" %></p>
     <% end %>
 </div>
+
+Notes: <%=@bookmark.notes %>
+
+<p></p>
 
 <%= button_to "Back", bookmarks_path, method: 'get', class: "waves-effect waves-light btn"  %><br>
 <%= button_to "Edit", edit_bookmark_path(@bookmark), method: 'get', class: "waves-effect waves-light btn"  %><br>
