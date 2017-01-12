@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user
+  before_action :set_bookmark, only: [:edit, :update, :show, :destroy]
 
   def index
     @bookmarks = current_user.bookmarks
@@ -33,11 +34,11 @@ class BookmarksController < ApplicationController
   end
 
   def edit
-    @bookmark = Bookmark.find(params[:id])
+    # @bookmark = Bookmark.find(params[:id])
   end
 
   def update
-    @bookmark = Bookmark.find(params[:id])
+    # @bookmark = Bookmark.find(params[:id])
     if @bookmark.update(bookmark_params)
       redirect_to bookmark_path(@bookmark)
     else
@@ -46,11 +47,13 @@ class BookmarksController < ApplicationController
   end
 
   def show
-    @bookmark = Bookmark.find(params[:id])
+    #@bookmark = Bookmark.find(params[:id])
+    @bookmark = Bookmark.where(id: params[:id]).where(user_id: current_user.id).first
+    #binding.pry
   end
 
   def destroy
-    @bookmark = Bookmark.find(params[:id])
+    # @bookmark = Bookmark.find(params[:id])
     @bookmark_tags = BookmarkTag.where(bookmark_id: @bookmark.id)
     @bookmark_tags.each { |bookmarktag| bookmarktag.destroy }
     @bookmark.destroy
@@ -60,6 +63,9 @@ class BookmarksController < ApplicationController
 
 
   private
+  def set_bookmark
+    @bookmark = Bookmark.where(id: params[:id]).where(user_id: current_user.id).first
+  end
 
   def bookmark_params
     params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description, :image_url)
