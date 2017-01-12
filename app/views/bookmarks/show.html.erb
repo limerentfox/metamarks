@@ -11,16 +11,18 @@
     <% end %>
 </div>
 
+<p>Notes: <%=@bookmark.notes %></p>
 
-Notes: <%=@bookmark.notes %>
+<div class="butons-wrapper">
 
-<br>
+    <%= button_to "Back", bookmarks_path, method: 'get', class: "waves-effect waves-light btn"  %>
+    <%= button_to "Edit", edit_bookmark_path(@bookmark), method: 'get', class: "waves-effect waves-light btn"  %>
+    <%= button_to "Delete", bookmark_path(@bookmark), method: 'delete', class: "waves-effect waves-light btn"  %>
 
-<%= button_to "Back", bookmarks_path, method: 'get', class: "waves-effect waves-light btn"  %><br>
-<%= button_to "Edit", edit_bookmark_path(@bookmark), method: 'get', class: "waves-effect waves-light btn"  %><br>
-<%= button_to "Delete", bookmark_path(@bookmark), method: 'delete', class: "waves-effect waves-light btn"  %>
-
-Tags:
-<% @bookmark.tags.each do |tag| %>
-  <%= link_to tag.name, tag_path(tag) %> |
-<% end %>
+</div>
+<p>
+  Tags:
+  <% @bookmark.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag) %> |
+  <% end %>
+</p>
