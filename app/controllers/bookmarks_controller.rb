@@ -39,7 +39,7 @@ class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
   end
-
+  
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark_tags = BookmarkTag.where(bookmark_id: @bookmark.id)
@@ -47,6 +47,7 @@ class BookmarksController < ApplicationController
     @bookmark.destroy
     redirect_to bookmarks_path
   end
+
 
 
   private
