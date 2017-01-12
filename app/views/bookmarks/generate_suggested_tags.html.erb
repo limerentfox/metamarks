@@ -1,0 +1,20 @@
+<h3>Add tags and description to your bookmark <%= @bookmark.url %></h3>
+
+<%= form_for @bookmark do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :all_tags %>
+  <%= f.text_field :suggested_tags, 'name'=>"bookmark[all_tags]" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <%= f.hidden_field :url %>
+
+  <%= f.submit "Save your bookmark", class: "waves-effect waves-light btn" %>
+<% end %>

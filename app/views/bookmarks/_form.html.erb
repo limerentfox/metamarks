@@ -1,15 +1,9 @@
 
 
-<%= form_for @bookmark do |f| %>
+<%= form_for @bookmark, url: generate_tags_path do |f| %>
 
   <%= f.label :url %>
   <%= f.url_field :url %>
-
-  <%= f.label :all_tags %>
-  <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
-
-  <%= f.label :notes %>
-  <%= f.text_field :notes %>
 
   <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>
