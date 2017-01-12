@@ -1,4 +1,18 @@
+<h3>Edit your bookmark for <%= @bookmark.url %></h3>
 
-  <h3>Edit your bookmark</h3>
+<%= form_for @bookmark do |f| %>
 
-  <%= render 'form' %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :all_tags %>
+  <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+
+  <%= f.submit class: "waves-effect waves-light btn" %>
+<% end %>

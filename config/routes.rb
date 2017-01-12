@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   resources :bookmarks
   resources :tags, only: [:show]
 
-
 end
