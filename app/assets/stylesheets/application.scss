@@ -51,6 +51,20 @@
       max-height: 60%;
     }
 
-.butons-wrapper > form {
+.buttons-wrapper > form {
   display: inline;
+}
+
+.tag {
+  background:#039BE5;
+  color:white;
+  padding:5px;
+  border-radius:7px;
+  a {
+    color:white;
+  }
+}
+
+.tags_wrapper {
+  line-height: 2em;
 }

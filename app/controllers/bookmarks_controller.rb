@@ -9,13 +9,18 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
-  def create
+  def generate_suggested_tags
     @bookmark = Bookmark.new(bookmark_params)
-    @bookmark.user = current_user
+    @bookmark.suggested_tags = TagSuggester.new(@bookmark.url)
     @object = LinkThumbnailer.generate(@bookmark.url)
     @bookmark.title = @object.title
     @bookmark.description = @object.description
     !@object.images.blank? ? @bookmark.image_url = @object.images.first.src.to_s : @bookmark.image_url = ""
+  end
+
+  def create
+    @bookmark = Bookmark.new(bookmark_params)
+    @bookmark.user = current_user
     if @bookmark.save
       redirect_to bookmark_path(@bookmark)
     else
@@ -39,7 +44,7 @@ class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
   end
-  
+
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark_tags = BookmarkTag.where(bookmark_id: @bookmark.id)
@@ -53,6 +58,6 @@ class BookmarksController < ApplicationController
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description)
+    params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description, :image_url)
   end
 end

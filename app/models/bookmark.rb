@@ -1,4 +1,6 @@
 class Bookmark < ApplicationRecord
+  attr_accessor :suggested_tags
+
   belongs_to :user
   has_many :bookmark_tags
   has_many :tags, through: :bookmark_tags
@@ -13,6 +15,4 @@ class Bookmark < ApplicationRecord
   def all_tags
     self.tags.map(&:name).join(", ")
   end
-
-
 end
