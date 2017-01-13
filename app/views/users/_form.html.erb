@@ -14,5 +14,9 @@
 
 <p><%= f.label :password %>
 <%= f.password_field :password %></p>
+
+<p><%= f.label "Reconfirm" %>
+<%= f.password_field :password_confirmation %></p>
+
 <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>
