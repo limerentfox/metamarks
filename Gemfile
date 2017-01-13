@@ -16,8 +16,8 @@ gem "paperclip", "~> 5.0.0"
 #screenshots
 gem 'link_thumbnailer'
 
-gem 'validate_url'
 # This gem adds the capability of validating URLs to ActiveRecord and ActiveModel (Rails 3).
+gem 'validate_url'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
