@@ -34,14 +34,26 @@ class BookmarksController < ApplicationController
   end
 
   def update
+
+
     if @bookmark.update(bookmark_params)
+      if params[:images]
+       params[:images].each { |image|
+         @bookmark.pictures.create(image: image)
+       }
       redirect_to bookmark_path(@bookmark)
     else
       render 'edit'
     end
   end
+end
 
   def show
+
+    @object = LinkThumbnailer.generate(@bookmark.url)
+    @image = @object.images.first.src.to_s
+
+    #@bookmark = Bookmark.find(params[:id])
     @bookmark = Bookmark.where(id: params[:id]).where(user_id: current_user.id).first
   end
 
@@ -57,7 +69,7 @@ class BookmarksController < ApplicationController
   end
 
   def bookmark_params
-    params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description, :image_url)
+    params.require(:bookmark).permit(:url, :user_id, :all_tags, :title, :notes, :description, :image_url, pictures_attributes: [:image])
   end
 
   def generate_tags
