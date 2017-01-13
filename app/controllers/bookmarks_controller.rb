@@ -36,19 +36,17 @@ class BookmarksController < ApplicationController
   end
 
   def update
-
-
     if @bookmark.update(bookmark_params)
       if params[:images]
-       params[:images].each { |image|
-         @bookmark.pictures.create(image: image)
-       }
-      redirect_to bookmark_path(@bookmark)
-    else
-      render 'edit'
+        params[:images].each { |image|
+          @bookmark.pictures.create(image: image)
+        }
+        redirect_to bookmark_path(@bookmark)
+      else
+        render 'edit'
+      end
     end
   end
-end
 
   def show
     @object = LinkThumbnailer.generate(@bookmark.url)
@@ -72,7 +70,7 @@ end
   end
 
   def generate_tags
-     @bookmark.suggested_tags = TagSuggester.new(@bookmark.url)
+    @bookmark.suggested_tags = TagSuggester.new(@bookmark.url)
   end
 
   def collect_meta_data
