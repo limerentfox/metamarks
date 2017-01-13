@@ -7,6 +7,10 @@ class Bookmark < ApplicationRecord
   validates :url, presence: true, :url => true
   has_many :pictures,inverse_of: :bookmark, dependent: :destroy
 
+  def self.most_popular_bookmarks
+    all.group(:url).count.sort_by {|k, v| v}.reverse[0..2]
+  end
+
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
       Tag.where(name: name.strip.downcase).first_or_create!
