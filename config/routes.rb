@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root to: 'bookmarks#index'
+  root to: 'application#home'
   resources :users, only: [:create, :show, :edit, :update]
   get '/signup', to: 'users#new'
   get '/login', to: 'sessions#new'
