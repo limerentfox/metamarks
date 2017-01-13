@@ -1,12 +1,10 @@
 
-
-
-<h3><%= @user.email %> </h3>
+<h3>Welcome to MetaMarks <%= @user.name %>! </h3>
 
 <% if @user.avatar? %>
-    <%= image_tag @user.avatar.url(:thumb)  %>
+    <%= image_tag @user.avatar.url(:thumb), class: "circle responsive-img"  %>
 <% else %>
-    <%= image_tag "/assets/thumbs/missing.png" %>
+    <%= image_tag "/assets/thumbs/missing.png", class: "circle responsive-img" %>
 <% end %>
 
 <br />

@@ -15,8 +15,8 @@
  */
 
  @import "materialize/components/color";
- $primary-color: color("grey", "darken-3") !default;
- $secondary-color: color("cyan", "lighten-1") !default;
+ $primary-color: #512DA8 !default;
+ $secondary-color: #00838F !default;
  @import "materialize";
 
 
@@ -25,7 +25,7 @@
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background-color: #FAFAFA;
+    background-color: #EDE7F6;
   }
 
 
@@ -34,12 +34,12 @@
     padding: 2%;
   }
 
-  img {
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        padding: 5px;
-        size: 30%;
-    }
+  // img {
+  //       border: 1px solid #ddd;
+  //       border-radius: 4px;
+  //       padding: 5px;
+  //       size: 30%;
+  //   }
 
   .link-container {
         margin-top: 20px;
@@ -51,6 +51,28 @@
       max-height: 60%;
     }
 
-  .second .container {
-    background-color: white;
+.buttons-wrapper > form {
+  display: inline;
+}
+
+.tag {
+  background:#9FA8DA;
+  color:white;
+  padding:5px;
+  border-radius:7px;
+  a {
+    color:white;
   }
+}
+
+.tags_wrapper {
+  line-height: 2em;
+}
+
+.delete-btn {
+  background:#D32F2F;
+}
+
+.delete-btn:hover{
+  background:#D50000;
+}
