@@ -14,7 +14,7 @@
   <h5>Popular bookmarks:</h5>
   <% @popular_bookmarks.each do |bookmark| %>
     <div class="col s12 m4">
-      <div class="card-panel blue lighten-2 center-align hoverable">
+      <div class="card-panel indigo lighten-2 center-align hoverable">
         <%= link_to bookmark[0], bookmark[0], :target => "_blank", class: "card-content black-text truncate" %>
       </div>
     </div>
@@ -25,7 +25,7 @@
   <h5>Popular tags:</h5>
   <% @popular_tags.each do |tag| %>
     <div class="col s12 m4">
-      <div class="card-panel blue lighten-3 center-align hoverable">
+      <div class="card-panel indigo lighten-1 center-align hoverable">
         <%= tag %>
       </div>
     </div>
