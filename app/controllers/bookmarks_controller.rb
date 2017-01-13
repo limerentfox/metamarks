@@ -14,7 +14,7 @@ class BookmarksController < ApplicationController
     unless params[:bookmark][:url].blank?
       @bookmark = Bookmark.new(bookmark_params)
       @bookmark.suggested_tags = TagSuggester.new(@bookmark.url)
-      @object = LinkThumbnailer.generate(@bookmark.url)
+      @object = LinkThumbnailer.generate(@bookmark.url, redirect_limit: 25)
       @bookmark.title = @object.title
       @bookmark.description = @object.description
       !@object.images.blank? ? @bookmark.image_url = @object.images.first.src.to_s : @bookmark.image_url = ""
