@@ -5,6 +5,7 @@ class Bookmark < ApplicationRecord
   has_many :bookmark_tags
   has_many :tags, through: :bookmark_tags
   validates :url, presence: true, :url => true
+  has_many :pictures,inverse_of: :bookmark, dependent: :destroy
 
   def all_tags=(names)
     self.tags = names.split(",").map do |name|

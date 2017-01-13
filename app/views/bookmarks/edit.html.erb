@@ -1,6 +1,6 @@
 <h3>Edit your bookmark for <%= @bookmark.url %></h3>
 
-<%= form_for @bookmark do |f| %>
+<%= form_for @bookmark, html: { multipart: true } do |f| %>
 
   <%= f.label :title %>
   <%= f.text_field :title %>
@@ -13,6 +13,13 @@
 
   <%= f.label :notes %>
   <%= f.text_field :notes %>
+
+
+
+        <%= f.label :pictures, "upload images" %>
+        <%= file_field_tag "images[]", type: :file, multiple: true %>
+
+
 
   <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>

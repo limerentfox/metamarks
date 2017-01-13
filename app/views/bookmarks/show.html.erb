@@ -8,6 +8,12 @@
     <% else %>
       <p><%= link_to @bookmark.url, @bookmark.url, :target => "_blank" %></p>
     <% end %>
+
+    <section class="images-uploaded">
+      <% @bookmark.pictures.each do |picture| %>
+      <%= image_tag picture.image.url(:thumb)  %>
+      <% end %>
+    </section>
      <div class="tags_wrapper">
       A link about:
       <% @bookmark.tags.each do |tag| %>
