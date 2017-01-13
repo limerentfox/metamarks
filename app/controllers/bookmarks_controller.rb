@@ -36,15 +36,13 @@ class BookmarksController < ApplicationController
   end
 
   def update
+    if params[:images]
+      params[:images].each { |image| @bookmark.pictures.create(image: image) }
+    end
     if @bookmark.update(bookmark_params)
-      if params[:images]
-        params[:images].each { |image|
-          @bookmark.pictures.create(image: image)
-        }
-        redirect_to bookmark_path(@bookmark)
-      else
-        render 'edit'
-      end
+      redirect_to bookmark_path(@bookmark)
+    else
+      render 'edit'
     end
   end
 
