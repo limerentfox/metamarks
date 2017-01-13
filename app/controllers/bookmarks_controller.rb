@@ -4,6 +4,8 @@ class BookmarksController < ApplicationController
 
   def index
     @bookmarks = current_user.bookmarks
+    @popular_bookmarks = Bookmark.most_popular_bookmarks
+    @popular_tags = BookmarkTag.most_popular_tags
   end
 
   def new

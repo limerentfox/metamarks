@@ -6,6 +6,10 @@ class Bookmark < ApplicationRecord
   has_many :tags, through: :bookmark_tags
   validates :url, presence: true, :url => true
 
+  def self.most_popular_bookmarks
+    all.group(:url).count.sort_by {|k, v| v}.reverse[0..2]
+  end
+
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
       Tag.where(name: name.strip.downcase).first_or_create!
