@@ -2,6 +2,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :logged_in?
 
+  def home
+    if cookies.signed[:user_id]
+      @user = User.find(cookies.signed[:user_id])
+      session[:user_id] = @user.id
+      redirect_to bookmarks_path
+    end
+  end
+
   private
 
   def authenticate_user
@@ -18,10 +26,6 @@ class ApplicationController < ActionController::Base
   def logged_in?
     !!session[:user_id]
   end
-
-  def home
-  end 
-
 
 
 end

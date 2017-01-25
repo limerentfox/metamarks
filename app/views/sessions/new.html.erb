@@ -8,6 +8,11 @@
 <p><%= label_tag :password %>
 <%= password_field_tag :password %></p>
 
+<p>
+<%= check_box_tag :remember_me %>
+<%= label_tag "remember me"%>
+</p>
+
 <%= submit_tag "Login", class: "waves-effect waves-light btn" %>
 
 <% end %>
