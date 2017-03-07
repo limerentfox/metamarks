@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
       end
       redirect_to bookmarks_path
     else
+      flash[:notice] = "Please enter correct e-mail/password combination."
       render :new
     end
   end

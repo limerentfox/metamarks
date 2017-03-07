@@ -1,6 +1,10 @@
-
 <span class="white-text">
   <h3 >Login Form</h3>
+
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
+  
   <%= form_tag login_path do %>
   <p><%= label_tag :email %>
   <%= email_field_tag :email %></p>
