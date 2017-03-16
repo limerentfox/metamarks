@@ -79,4 +79,5 @@ class BookmarksController < ApplicationController
       @bookmark.image_url = meta_data.images.first.src.to_s
     end
   end
+
 end

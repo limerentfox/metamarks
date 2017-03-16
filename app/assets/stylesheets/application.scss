@@ -20,6 +20,9 @@
  @import "materialize";
 
 
+  *{
+    font-family: 'Kalam', cursive;
+  }
 
   body {
     display: flex;
@@ -75,4 +78,15 @@
 
 .delete-btn:hover{
   background:#D50000;
+}
+
+#home{
+  background-image: url("Books.jpg");
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+footer.page-footer {
+  margin-top: 0;
 }

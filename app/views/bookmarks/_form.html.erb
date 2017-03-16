@@ -1,9 +1,5 @@
-
-
 <%= form_for @bookmark, url: generate_tags_path do |f| %>
-
-  <%= f.label :url %>
-  <%= f.url_field :url %>
-
+  <label> URL </label>
+  <%= f.url_field :url, value: "http://"  %>
   <%= f.submit class: "waves-effect waves-light btn" %>
 <% end %>

@@ -3,16 +3,16 @@
 <%= form_for @bookmark do |f| %>
 
   <%= f.label :title %>
-  <%= f.text_field :title %>
+  <%= f.text_field :title, placeholder: "Please enter title" %>
 
   <%= f.label :all_tags %>
-  <%= f.text_field :suggested_tags, 'name'=>"bookmark[all_tags]" %>
+  <%= f.text_field :suggested_tags, 'name'=>"bookmark[all_tags]", placeholder: "Please enter tags separated by commas (optional)"%>
 
   <%= f.label :description %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, placeholder: "Please enter description (optional)" %>
 
   <%= f.label :notes %>
-  <%= f.text_field :notes %>
+  <%= f.text_field :notes, placeholder: "Please enter any notes (optional)"%>
 
   <%= f.hidden_field :url %>
   <%= f.hidden_field :image_url %>

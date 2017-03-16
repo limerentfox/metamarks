@@ -1,10 +1,17 @@
-<main>
-
+<% if logged_in?%>
+  <main>
     <div class="container">
       <div class="second container">
-
         <%= yield %>
-
       </div>
     </div>
   </main>
+<% else %>
+<main id="home">
+  <div class="container">
+    <div class="second container">
+      <%= yield %>
+    </div>
+  </div>
+</main>
+<% end %>
